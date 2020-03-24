@@ -1,5 +1,5 @@
 <?php  /* $positions = new Illuminate\Support\Collection;
-        \Event::fire('website.template.positions', [$positions]);
+        \Event::dispatch('website.template.positions', [$positions]);
             if(!empty($positions[$themeHelper->active_template_name])){
             foreach ($positions[$themeHelper->active_template_name] as $items) {
                 if($position == $items['position']){

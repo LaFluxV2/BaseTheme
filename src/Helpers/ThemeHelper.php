@@ -26,8 +26,8 @@ class ThemeHelper
                 ->first();
         }
 
-        if(sizeof($activetheme)){
-              $this->active_template_path = "template".$ds.strtolower($activetheme->vendor)
+         if (!empty($activetheme)) {
+             $this->active_template_path = "template".$ds.strtolower($activetheme->vendor)
               .$ds.strtolower($activetheme->name);
               $this->active_template_name = strtolower($activetheme->vendor).".".strtolower($activetheme->name);
               $this->template_view_path = base_path(). '/resources/template/'.strtolower($activetheme->vendor).$ds.strtolower($activetheme->name);
@@ -50,7 +50,7 @@ class ThemeHelper
 
         $position = new \Illuminate\Support\Collection;
         $theme_positions = [];
-        \Event::fire('website.template.positions', [$position]);
+        \Event::dispatch('website.template.positions', [$position]);
         $vendor_name = $this->vendor_name;
         $theme_name = $this->theme_name;
         $template_name = strtolower($vendor_name).".".strtolower($theme_name);
@@ -66,7 +66,7 @@ class ThemeHelper
      public function getLayouts(){
 
         $layout = new \Illuminate\Support\Collection;
-        \Event::fire('website.template.layout', [$layout]);
+        \Event::dispatch('website.template.layout', [$layout]);
         $theme_layout = [];
         $vendor_name = $this->vendor_name;
         $theme_name = $this->theme_name;

@@ -22,7 +22,7 @@ class WebSiteController extends Controller
         $themeHelper = $this->themeHelper;
         $page = Pages::Where('slug','home')->Where('status',1)->WhereNull('deleted_at')->first();
         return \View::make("$themeHelper->theme_name::default.index",
-            compact('title', 'result','themeHelper','page'));
+            compact('title','themeHelper','page'));
     }
 
     public function SubmitContactform(Request $request){
